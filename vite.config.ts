@@ -12,7 +12,7 @@ export default defineConfig({
         'src'
       )}/`,
     },
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    // extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   plugins: [react()],
 });
