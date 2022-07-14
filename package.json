@@ -38,7 +38,7 @@
     "vite": "^2.9.9"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "**/*": "prettier --write --ignore-unknown --allow-empty"
   },
   "husky": {
     "hooks": {
