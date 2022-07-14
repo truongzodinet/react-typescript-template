@@ -28,7 +28,6 @@ export const SignUpInfoProvider: React.FC<Props> = ({ children }) => {
     cheked: [],
   });
   const submit = (values: SignUpContext) => {
-    // console.log(values);
     setSignUpInfo(values);
   };
   const value: ISignUpContext = { signUpInfo, submit };

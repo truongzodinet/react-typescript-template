@@ -1,73 +1,36 @@
 import React from 'react';
 import '~/styles/components/form/_signup.scss';
-import SignupData from '~/components/form/SignupData.tsx';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
+import { useSignUpInfoContext } from '~/helpers/context.tsx';
 
 const SignupInfor: React.FC = () => {
+  const { signUpInfo } = useSignUpInfoContext();
+  const { role, name, email, password, checked } = signUpInfo;
   return (
-    <section className="signup_data">
-      <Formik
-        initialValues={{ email: '' }}
-        onSubmit={async (values) => {
-          await new Promise((resolve) => setTimeout(resolve, 500));
-          alert(JSON.stringify(values, null, 2));
-        }}
-        validationSchema={Yup.object().shape({
-          email: Yup.string().email().required('Required'),
-        })}
-      >
-        {(props) => {
-          const {
-            values,
-            touched,
-            errors,
-            dirty,
-            isSubmitting,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            handleReset,
-          } = props;
-          return (
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="email" style={{ display: 'block' }}>
-                Email
-              </label>
-              <input
-                id="email"
-                placeholder="Enter your email"
-                type="text"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={
-                  errors.email && touched.email
-                    ? 'text-input error'
-                    : 'text-input'
-                }
-              />
-              {errors.email && touched.email && (
-                <div className="input-feedback">{errors.email}</div>
-              )}
-
-              <button
-                type="button"
-                className="outline"
-                onClick={handleReset}
-                disabled={!dirty || isSubmitting}
-              >
-                Reset
-              </button>
-              <button type="submit" disabled={isSubmitting}>
-                Submit
-              </button>
-
-              <SignupData {...props} />
-            </form>
-          );
-        }}
-      </Formik>
+    <section className="signup_infor">
+      {role ? (
+        <label>isEmployer: {role}</label>
+      ) : (
+        <label>isEmployer: not-choose</label>
+      )}
+      {name ? <label>Name: {name}</label> : <label>Name: not-choose</label>}
+      <label>Email: {email}</label>
+      {password ? (
+        <label>Password: {password}</label>
+      ) : (
+        <label>Password: not-choose</label>
+      )}
+      <div style={{ display: 'flex' }}>
+        {checked[0] ? (
+          <label>Options: [{checked[0]}</label>
+        ) : (
+          <label>Options: [not-choose</label>
+        )}
+        {checked[1] ? (
+          <label>, {checked[1]}]</label>
+        ) : (
+          <label>, not-choose]</label>
+        )}
+      </div>
     </section>
   );
 };
