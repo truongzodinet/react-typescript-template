@@ -4,7 +4,7 @@
 
 [build]
   publish = "dist"
-  command = "npm i --store=node_modules/.npm-store && npm run build"
+  command = "ci = npm i && npm run build"
 
 [[redirects]]
   from = "/*"
