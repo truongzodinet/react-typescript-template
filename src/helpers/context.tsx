@@ -18,8 +18,7 @@ type Props = {
 const SignUpInfoContext = createContext<ISignUpContext | string>(
   'useSignUpInfoContext should be used inside SignUpInfoProvider'
 );
-
-export const SignUpInfoProvider: React.FC<Props> = ({ children }) => {
+const SignUpInfoProvider: React.FC<Props> = ({ children }) => {
   const [signUpInfo, setSignUpInfo] = useState<SignUpContext>({
     role: '',
     name: '',
@@ -34,10 +33,12 @@ export const SignUpInfoProvider: React.FC<Props> = ({ children }) => {
   return <SignUpInfoContext.Provider {...{ value, children }} />;
 };
 
-export const useSignUpInfoContext = (): ISignUpContext => {
+const useSignUpInfoContext = (): ISignUpContext => {
   const context = React.useContext(SignUpInfoContext);
   if (typeof context === 'string') {
     throw new Error(context);
   }
   return context;
 };
+
+export { SignUpInfoProvider, useSignUpInfoContext };

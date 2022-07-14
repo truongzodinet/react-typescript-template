@@ -156,7 +156,7 @@ const signup: React.FC<SignUp> = () => {
                   </label>
                 </div>
               </div>
-              <div className="signup_button">
+              <div className="signup_button" onClick={handleSubmit}>
                 <button type="submit" disabled={isSubmitting}>
                   Sign up
                 </button>

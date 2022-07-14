@@ -1,14 +1,18 @@
 import React from 'react';
 import '~/styles/components/form/_signup.scss';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useSignUpInfoContext } from '~/helpers/context.tsx';
 
 const SignupInfor: React.FC = () => {
   const { signUpInfo } = useSignUpInfoContext();
+  const navigate = useNavigate();
+  const returnHome = () => navigate('/signup');
+
   const { role, name, email, password, checked } = signUpInfo;
   return (
     <section className="signup_infor">
       {role ? (
-        <label>isEmployer: {role}</label>
+        <label>Role: {role}</label>
       ) : (
         <label>isEmployer: not-choose</label>
       )}
@@ -19,18 +23,15 @@ const SignupInfor: React.FC = () => {
       ) : (
         <label>Password: not-choose</label>
       )}
-      <div style={{ display: 'flex' }}>
+      <label style={{ display: 'flex' }}>
         {checked[0] ? (
-          <label>Options: [{checked[0]}</label>
+          <span>Options: [{checked[0]}</span>
         ) : (
-          <label>Options: [not-choose</label>
+          <span>Options: [not-choose</span>
         )}
-        {checked[1] ? (
-          <label>, {checked[1]}]</label>
-        ) : (
-          <label>, not-choose]</label>
-        )}
-      </div>
+        {checked[1] ? <span>, {checked[1]}]</span> : <span>, not-choose]</span>}
+      </label>
+      <button onClick={returnHome}>Back!</button>
     </section>
   );
 };
