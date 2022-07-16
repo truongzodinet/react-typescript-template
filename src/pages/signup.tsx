@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '~/styles/components/form/_signup.scss';
-import { useSignUpInfoContext } from '~/helpers/context.tsx';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
+import { useSignUpInfoContext } from '../helpers/context';
 
 type SignUp = {
   role: string;
@@ -156,7 +156,12 @@ const signup: React.FC<SignUp> = () => {
                   </label>
                 </div>
               </div>
-              <div className="signup_button" onClick={handleSubmit}>
+              <div
+                className="signup_button"
+                onClick={(e: unknown) =>
+                  handleSubmit(e as React.FormEvent<HTMLFormElement>)
+                }
+              >
                 <button type="submit" disabled={isSubmitting}>
                   Sign up
                 </button>

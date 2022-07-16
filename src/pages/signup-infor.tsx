@@ -1,7 +1,7 @@
 import React from 'react';
 import '~/styles/components/form/_signup.scss';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useSignUpInfoContext } from '~/helpers/context.tsx';
+import { useNavigate } from 'react-router-dom';
+import { useSignUpInfoContext } from '../helpers/context';
 
 const SignupInfor: React.FC = () => {
   const { signUpInfo } = useSignUpInfoContext();
@@ -24,7 +24,7 @@ const SignupInfor: React.FC = () => {
         <label>Password: not-choose</label>
       )}
       <label style={{ display: 'flex' }}>
-        {checked[0] ? (
+        {checked?.length && checked[0] ? (
           <span>Options: [{checked[0]}</span>
         ) : (
           <span>Options: [not-choose</span>
