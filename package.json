@@ -12,9 +12,12 @@
     "pre-commit": "lint-staged"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "formik": "^2.2.9",
+    "query-string": "^7.1.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-google-recaptcha-v3": "^1.10.0",
     "react-router-dom": "^6.3.0",
     "yup": "^0.32.11"
   },

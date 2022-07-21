@@ -142,14 +142,12 @@ const signup: React.FC<SignUp> = () => {
               </div>
               <div className="signup_checkbox">
                 <div>
-                  {/* <input type="checkbox" name="checked" id="isSubscribe" value={'true'} onChange={handleChange} /> */}
                   <label>
                     <Field type="checkbox" name="checked" value="1" />{' '}
                     Subscribes to news letter
                   </label>
                 </div>
                 <div>
-                  {/* <input type="checkbox" name="checked" id="isAcceptTermsOfUse" value={'false'} onChange={handleChange} /> */}
                   <label>
                     <Field type="checkbox" name="checked" value="2" /> I accept
                     Term of Use

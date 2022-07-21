@@ -43,7 +43,7 @@ const CNavigation: React.FC = () => {
           <a href="#Notification">Notification</a>
         </div>
         <div>
-          <a href="#Login">Login</a>
+          <a href="/signin">Login</a>
           <a href="/signup">Signup</a>
         </div>
         <div>
