@@ -7,7 +7,7 @@ class AuthRequest {
   }
 
   loginUser(user: object) {
-    const url = '/users/login';
+    const url = '/auth/login';
     return axiosConfig.post(url, user);
   }
 }

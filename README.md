@@ -17,3 +17,5 @@
 * [React x Typescript](https://create-react-app.dev/docs/getting-started)
 * [React x Formik](https://formik.org/docs/overview)
 * [React x Yup](https://www.npmjs.com/package/yup)
+* [QRCode](https://www.npmjs.com/package/qrcode)
+* [OTP](https://www.npmjs.com/package/otplib)

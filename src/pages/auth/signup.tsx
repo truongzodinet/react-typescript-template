@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '~/styles/components/form/_signup.scss';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
-import { useSignUpInfoContext } from '../helpers/context';
+import { useSignUpInfoContext } from '../../helpers/context';
 
 type SignUp = {
   role: string;

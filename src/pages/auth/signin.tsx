@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import AuthRequest from '../services/auth';
+import AuthRequest from '../../services/auth';
 import {
   GoogleReCaptchaProvider,
   useGoogleReCaptcha,
@@ -9,7 +9,7 @@ import {
 const signin: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [data, setData] = useState<object>({});
+  const [data, setData] = useState<object>();
 
   const [token, setToken] = useState<string>();
   const [refreshReCaptcha, setRefreshReCaptcha] = useState(false);
@@ -23,6 +23,9 @@ const signin: React.FC = () => {
     setData(await AuthRequest.loginUser({ email, password, capcha: token }));
     console.log(data);
     setRefreshReCaptcha((r) => !r);
+    if (data) {
+      window.location.href = '/multi-auth';
+    }
   };
   return (
     <section>

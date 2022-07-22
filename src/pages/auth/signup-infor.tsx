@@ -1,7 +1,7 @@
 import React from 'react';
 import '~/styles/components/form/_signup.scss';
 import { useNavigate } from 'react-router-dom';
-import { useSignUpInfoContext } from '../helpers/context';
+import { useSignUpInfoContext } from '../../helpers/context';
 
 const SignupInfor: React.FC = () => {
   const { signUpInfo } = useSignUpInfoContext();
